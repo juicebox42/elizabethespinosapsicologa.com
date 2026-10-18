@@ -1,0 +1,3005 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Psicóloga Elizabeth Espinosa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap"
+        rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'CharmLuxurious';
+            src: url('fonts/CharmLuxurious.woff2') format('woff2');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'SFUIDisplay-Light';
+            src: url('fonts/SFUIDisplay-Light.woff2') format('woff2');
+            font-weight: 300;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'SFUIDisplay-Semibold';
+            src: url('fonts/SFUIDisplay-Semibold.woff2') format('woff2');
+            font-weight: 500;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        :root {
+            --primary-dark: #745c82;
+            --primary-light: #9177a1;
+            --bg-light: #fdfbf7;
+            --bg-cream: #f2efeb;
+            --text-dark: #745c82;
+            --text-gray: #4a4a4a;
+            --accent: #e99b92;
+            --white: #ffffff;
+            --border-color: #d1c8c0;
+            --font-sans: 'SFUIDisplay-Light', 'SF Pro Display', 'SF Pro Text', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            --font-sans-semibold: 'SFUIDisplay-Semibold', 'SF Pro Display', 'SF Pro Text', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            --font-serif: 'Playfair Display', Georgia, serif;
+            --font-title: 'CharmLuxurious', Georgia, serif;
+
+            /* Escala tipografica (ratio ~1.25), base 16px = 1rem.
+               Los valores clamp() interpolan entre movil (vw) y desktop (rem)
+               para que cada tamano sea "el correcto" en cualquier ancho,
+               sin necesitar reglas sueltas por breakpoint. */
+            --text-xs:   clamp(0.75rem, 0.72rem + 0.15vw, 0.8rem);    /* 12 -> 12.8px */
+            --text-sm:   clamp(0.875rem, 0.84rem + 0.18vw, 0.95rem);  /* 14 -> 15.2px */
+            --text-base: clamp(1rem, 0.96rem + 0.2vw, 1.0625rem);     /* 16 -> 17px */
+            --text-lg:   clamp(1.0625rem, 1rem + 0.3vw, 1.1875rem);   /* 17 -> 19px */
+            --text-xl:   clamp(1.25rem, 1.15rem + 0.5vw, 1.5rem);     /* 20 -> 24px */
+            --text-2xl:  clamp(1.5rem, 1.3rem + 1vw, 1.9375rem);      /* 24 -> 31px */
+            --text-3xl:  clamp(1.75rem, 1.4rem + 1.75vw, 2.5rem);     /* 28 -> 40px */
+            --text-4xl:  clamp(2rem, 1.5rem + 2.5vw, 3.25rem);        /* 32 -> 52px */
+            --text-5xl:  clamp(2.25rem, 1.5rem + 3.75vw, 4rem);       /* 36 -> 64px */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            font-family: var(--font-sans);
+            color: #666666;
+            background-color: var(--bg-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+            max-width: 100%;
+            font-size: var(--text-base);
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: var(--font-title);
+            font-weight: 600;
+            color: var(--text-dark);
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        h1 {
+            font-size: clamp(2.2rem, 1.8rem + 1.2vw, 3.2rem);
+        }
+
+        h2 {
+            font-size: 24px;
+        }
+
+        h3,
+        h4 {
+            font-size: var(--text-2xl);
+        }
+
+        p {
+            font-family: var(--font-sans);
+            font-size: 14px;
+            font-weight: 300;
+            line-height: 1.55;
+            text-align: left;
+            word-spacing: 0px;
+            color: #666666;
+            max-width: 65ch;
+            letter-spacing: -0.01em;
+            margin-bottom: 0.85em;
+        }
+
+        strong,
+        b {
+            font-family: var(--font-sans-semibold);
+            font-weight: 500;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-weight: 500;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.3s ease;
+            font-size: var(--text-sm);
+        }
+
+        .btn-primary {
+            background-color: var(--primary-dark);
+            color: var(--white);
+            border: 1px solid var(--primary-dark);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-light);
+            border-color: var(--primary-light);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary-dark);
+            border: 1px solid var(--primary-dark);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-dark);
+            color: var(--white);
+        }
+
+        /* Header sticky
+           Se usa position: fixed (y no sticky) porque html y body tienen overflow-x: hidden,
+           lo que anula position: sticky. El .header-spacer ocupa el hueco en el flujo. */
+        :root {
+            --header-offset: 84px;
+            --header-dur: 0.5s;
+            --header-ease: cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        html {
+            scroll-padding-top: var(--header-offset);
+        }
+
+        .site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: transparent;
+            border-bottom: 1px solid transparent;
+            transition: background-color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .site-header header {
+            transition: padding var(--header-dur) var(--header-ease);
+        }
+
+        .site-header .logo img {
+            transition: height var(--header-dur) var(--header-ease),
+                        max-height var(--header-dur) var(--header-ease),
+                        margin var(--header-dur) var(--header-ease);
+        }
+
+        /* Sin animación mientras se mide la altura del header */
+        .site-header.no-transition,
+        .site-header.no-transition * {
+            transition: none !important;
+        }
+
+        .header-spacer {
+            height: var(--header-h, 120px);
+        }
+
+        .site-header.is-scrolled {
+            background: rgba(253, 251, 247, 0.88);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom-color: rgba(116, 92, 130, 0.12);
+            box-shadow: 0 10px 30px rgba(116, 92, 130, 0.08);
+        }
+
+        .site-header.is-scrolled header {
+            padding: 10px 0;
+        }
+
+        .site-header.is-scrolled .logo img {
+            max-height: 56px;
+            width: auto;
+        }
+
+        /* Con el menú móvil abierto, la barra se vuelve transparente para no tapar el panel */
+        body.menu-open .site-header {
+            background: transparent;
+            border-bottom-color: transparent;
+            box-shadow: none;
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+            pointer-events: none;
+        }
+
+        body.menu-open .site-header .menu-toggle {
+            pointer-events: auto;
+        }
+
+        @media (max-width: 992px) {
+            :root {
+                --header-offset: 74px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            /* El PNG del logo tiene margen transparente, así que la imagen es más alta
+               que el dibujo visible. Los márgenes negativos evitan que engorde la barra. */
+            .site-header.is-scrolled .logo img {
+                height: 66px;
+                max-height: 66px;
+                margin: -10px 0;
+            }
+        }
+
+        @media (min-width: 993px) and (max-width: 1100px) {
+            header nav ul {
+                gap: 24px;
+            }
+        }
+
+        /* Header */
+        header {
+            padding: 20px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 1000;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: var(--font-serif);
+            font-size: var(--text-xl);
+            font-weight: 600;
+            color: var(--primary-dark);
+            line-height: 1.1;
+        }
+
+        .logo img {
+            max-height: 170px;
+            width: auto;
+        }
+
+        .logo svg {
+            width: 32px;
+            height: 32px;
+            fill: var(--primary-light);
+        }
+
+        /* Desktop navigation - visible by default */
+        nav {
+            display: block;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 35px;
+        }
+
+        nav a {
+            font-size: var(--text-sm);
+            font-weight: 500;
+            color: var(--text-dark);
+            position: relative;
+            transition: color 0.25s ease, transform 0.25s ease;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary-light);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.28s ease;
+            opacity: 0.9;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: var(--primary-light);
+        }
+
+        nav a:hover::after,
+        nav a.active::after {
+            transform: scaleX(1);
+        }
+
+        /* Mobile menu toggle - with hamburger to X animation */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 1002;
+            position: relative;
+            width: 46px;
+            height: 46px;
+            border-radius: 14px;
+            background: rgba(116, 92, 130, 0.06);
+            border: 1px solid rgba(116, 92, 130, 0.08);
+            transition: background 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
+        }
+
+        .menu-toggle:hover {
+            background: rgba(116, 92, 130, 0.1);
+            border-color: rgba(116, 92, 130, 0.14);
+            transform: translateY(-1px);
+        }
+
+        .menu-toggle span {
+            width: 22px;
+            height: 2px;
+            background-color: var(--primary-dark);
+            border-radius: 999px;
+            transition: all 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+            position: relative;
+            margin: 0 auto;
+        }
+
+        /* Hamburger to X animation */
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(4px, 5px);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+            transform: scaleX(0.2);
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(4px, -5px);
+        }
+
+        /* Mobile menu - premium floating panel */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 20px;
+            left: 16px;
+            right: 16px;
+            width: auto;
+            max-height: calc(100vh - 36px);
+            background: rgba(255, 255, 255, 0.78);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 1px solid rgba(116, 92, 130, 0.1);
+            border-radius: 20px;
+            padding: 28px 20px 18px;
+            transform: translateY(-20px) scale(0.97);
+            opacity: 0;
+            pointer-events: none;
+            transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.45s ease, box-shadow 0.4s ease;
+            z-index: 999;
+            overflow-y: auto;
+            box-shadow: 0 28px 60px rgba(116, 92, 130, 0.14);
+            will-change: transform, opacity;
+        }
+
+        .mobile-menu.active {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .mobile-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 8px;
+            align-items: stretch;
+            text-align: left;
+        }
+
+        .mobile-nav li {
+            opacity: 0;
+            transform: translateY(18px);
+            transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.4s ease;
+        }
+
+        .mobile-menu.active .mobile-nav li {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .mobile-menu.active .mobile-nav li:nth-child(1) { transition-delay: 0.06s; }
+        .mobile-menu.active .mobile-nav li:nth-child(2) { transition-delay: 0.12s; }
+        .mobile-menu.active .mobile-nav li:nth-child(3) { transition-delay: 0.18s; }
+        .mobile-menu.active .mobile-nav li:nth-child(4) { transition-delay: 0.24s; }
+        .mobile-menu.active .mobile-nav li:nth-child(5) { transition-delay: 0.30s; }
+        .mobile-menu.active .mobile-nav li:nth-child(6) { transition-delay: 0.36s; }
+
+        .mobile-nav a {
+            font-size: clamp(1.1rem, 2vw, 1.35rem);
+            font-weight: 500;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 18px;
+            border-radius: 18px;
+            transition: transform 0.28s cubic-bezier(0.2, 0.8, 0.2, 1), background-color 0.28s ease, color 0.28s ease, box-shadow 0.28s ease;
+            letter-spacing: -0.02em;
+        }
+
+        .mobile-nav a::after {
+            content: '→';
+            color: var(--primary-light);
+            opacity: 0;
+            transform: translateX(-8px);
+            transition: transform 0.25s ease, opacity 0.25s ease;
+        }
+
+        .mobile-nav a:hover::after,
+        .mobile-nav a.active::after {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .mobile-nav a:hover,
+        .mobile-nav a.active {
+            color: var(--primary-light);
+            background: rgba(145, 119, 161, 0.07);
+            box-shadow: inset 0 0 0 1px rgba(145, 119, 161, 0.08);
+        }
+
+        .mobile-menu .btn {
+            margin: 30px 0 0 0;
+            width: 100%;
+            padding: 16px 18px;
+            font-size: clamp(1.1rem, 2vw, 1.35rem);
+            display: block;
+            border-radius: 18px;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            box-shadow: inset 0 0 0 1px rgba(116, 92, 130, 0.08);
+        }
+
+
+        .header-btn {
+            font-size: var(--text-sm);
+            padding: 10px 24px;
+        }
+
+        /* Overlay for mobile menu */
+        .menu-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(40, 30, 42, 0.28);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            opacity: 0;
+            transition: opacity 0.35s ease;
+            z-index: 998;
+        }
+
+        .menu-overlay.active {
+            display: block;
+            opacity: 1;
+        }
+
+        /* Mobile styles - only apply below 992px */
+        @media (max-width: 992px) {
+            /* Show mobile menu toggle */
+            .menu-toggle {
+                display: flex;
+                margin-right: 20px;
+            }
+            
+            /* Hide desktop navigation */
+            nav {
+                display: none;
+            }
+            
+            /* Adjust header button for mobile */
+            .header-btn {
+                display: none;
+            }
+            
+            /* Adjust logo size for mobile */
+            .logo img {
+                height: 140px;
+            }
+            
+            /* Show mobile menu */
+            .mobile-menu {
+                display: block;
+            }
+            
+            /* Fix horizontal overflow in hero */
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 24px 0 24px;
+                gap: 24px;
+            }
+            
+            .hero-content {
+                flex: none;
+            }
+            
+            .hero-image-container {
+                flex: none;
+                width: 100%;
+            }
+            
+            .hero-image {
+                height: 400px;
+                border-radius: 0;
+            }
+            
+            .hero-shape-1 {
+                display: none;
+            }
+            
+            .floating-quote {
+                position: relative;
+                left: 0;
+                bottom: 0;
+                margin-top: 30px;
+                max-width: 100%;
+            }
+            
+            .hero-actions {
+                justify-content: center;
+                flex-direction: column;
+                gap: 15px;
+                margin-bottom: 8px;
+            }
+
+            .hero h1 {
+                margin-bottom: 18px;
+            }
+
+            .hero p {
+                margin-bottom: 20px;
+            }
+
+            .hero p,
+            p,
+            .challenge-card p,
+            .about-content p,
+            .therapy-understanding p,
+            .info-section p,
+            .step p,
+            .testimonial-card p,
+            .cta-text p,
+            .footer-logo p,
+            .footer-column ul a,
+            .contact-info,
+            .footer-bottom {
+                max-width: 65ch;
+                margin-bottom: 1em;
+            }
+
+            .hero-actions .btn-outline {
+                display: none;
+            }
+
+            .hero-features,
+            .hero-feature,
+            .feature-icon-wrapper,
+            .hero-feature h4 {
+                display: none !important;
+            }
+
+            /* About section */
+            .about-section {
+                flex-direction: column;
+                padding: 60px 0;
+                gap: 40px;
+            }
+            
+            .about-image-1,
+            .about-image-2 {
+                height: 350px;
+            }
+            
+            .about-content {
+                padding: 0;
+                text-align: center;
+            }
+            
+            .check-list {
+                display: inline-block;
+                text-align: left;
+            }
+            
+            .about-image-2-container {
+                width: 100%;
+            }
+            
+            .about-image-2 {
+                border-radius: 16px;
+            }
+            
+            .experience-badge {
+                display: none;
+            }
+            
+            /* Journey section */
+            .journey-steps {
+                flex-wrap: wrap;
+                gap: 40px;
+                justify-content: center;
+            }
+            
+            .journey-steps::before {
+                display: none;
+            }
+            
+            .step {
+                width: 100%;
+                max-width: 250px;
+            }
+            
+            /* Challenges section */
+            .challenges-section {
+                padding: 60px 0 20px;
+            }
+
+            .challenges-header {
+                flex-wrap: wrap;
+                gap: 30px;
+                text-align: center;
+                margin-bottom: 0;
+                justify-content: center;
+            }
+            
+            .challenges-header-text {
+                max-width: 100%;
+            }
+            
+            .challenges-grid {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                justify-items: center;
+                gap: 15px;
+                width: 100%;
+                max-width: 460px;
+                margin: 0 auto;
+                align-items: start;
+            }
+
+            .challenge-card {
+                width: 100%;
+                max-width: 210px;
+                min-height: 290px;
+                padding: 20px 15px;
+                margin: 0 auto;
+            }
+
+            .challenge-card h3 {
+                min-height: 3.2em;
+            }
+
+            .challenge-card p {
+                min-height: 7em;
+            }
+
+            .challenge-card:nth-child(n + 3) {
+                margin-top: 0;
+            }
+
+            .challenge-icon {
+                width: 62px;
+                height: 62px;
+                margin-bottom: 18px;
+            }
+            
+            /* Testimonials */
+            .testimonials-grid {
+                flex-direction: column;
+            }
+            
+            .testimonial-card {
+                width: 100%;
+                max-width: 400px;
+            }
+            
+            .nav-btn {
+                display: none;
+            }
+            
+            /* CTA section */
+            .cta-box {
+                flex-direction: column;
+                padding: 40px 25px;
+                text-align: center;
+                gap: 30px;
+            }
+            
+            .cta-text {
+                justify-content: center;
+            }
+            
+            /* Footer - only show social and contact in mobile */
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+            
+            .footer-logo,
+            .footer-column:nth-child(2),
+            .footer-column:nth-child(3),
+            .footer-column:nth-child(4) {
+                display: none;
+            }
+            
+            .footer-column:nth-child(5) {
+                grid-column: 1 / -1;
+                text-align: center;
+            }
+            
+            .footer-column:nth-child(5) .social-links {
+                justify-content: center;
+            }
+            
+            .footer-column:nth-child(5) .contact-info {
+                align-items: center;
+            }
+            
+            .footer-column:nth-child(5) .contact-info > div {
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                gap: 10px !important;
+            }
+            
+            .footer-bottom {
+                text-align: center;
+            }
+        }
+        
+
+        /* Tablet and larger - ensure horizontal menu is visible */
+        @media (min-width: 993px) {
+            .menu-toggle {
+                display: none !important;
+            }
+            
+            .mobile-menu {
+                display: none !important;
+            }
+            
+            .menu-overlay {
+                display: none !important;
+            }
+            
+            nav {
+                display: block !important;
+            }
+            
+            .header-btn {
+                display: inline-block !important;
+            }
+            
+            .logo img {
+                max-height: 170px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .logo {
+                margin-left: 20px;
+            }
+
+            .logo img {
+                height: 120px;
+            }
+            
+            .container {
+                padding: 0 12px;
+                overflow-x: hidden;
+            }
+            
+            /* Fix horizontal overflow in sections */
+            .hero, .about-section, .challenges-section, .journey-section, .testimonials-section, .cta-section {
+                overflow-x: hidden;
+            }
+            
+            .journey-section {
+                display: none;
+            }
+            
+            /* Mobile menu adjustments */
+            .mobile-menu {
+                padding: 80px 25px 40px;
+            }
+
+        }
+        
+        @media (max-width: 480px) {
+            .logo img {
+                height: 100px;
+            }
+            
+            /* Ensure no element causes horizontal overflow */
+            img, video, iframe, svg {
+                max-width: 100%;
+                height: auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero,
+            .about-section,
+            .therapy-understanding,
+            .info-section,
+            .challenges-section,
+            .journey-section,
+            .testimonials-section,
+            .cta-section {
+                padding-top: 40px !important;
+                padding-bottom: 40px !important;
+            }
+
+            p,
+            .hero p,
+            .about-content p,
+            .therapy-understanding p,
+            .info-section p,
+            .challenge-card p,
+            .step p,
+            .testimonial-card p,
+            .cta-text p,
+            .footer-logo p {
+                font-size: 15px !important;
+                line-height: 1.55;
+                margin-bottom: 13px;
+            }
+
+            .about-content p:last-child,
+            .therapy-understanding p:last-child,
+            .info-section p:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            padding: 60px 0;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .hero-content {
+            flex: 1.1;
+        }
+
+        .subtitle {
+            text-transform: uppercase;
+            font-size: var(--text-sm);
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            line-height: 1.6;
+            color: var(--primary-light);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            word-spacing: 0;
+            font-family: var(--font-sans);
+        }
+
+        .subtitle::before {
+            content: '';
+            width: 40px;
+            height: 1.5px;
+            background-color: var(--primary-light);
+            display: block;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.2rem, 1.8rem + 1.2vw, 3.2rem);
+            margin-bottom: 18px;
+        }
+
+        .hero h1 span {
+            color: var(--primary-light);
+        }
+
+        .hero p {
+            font-size: var(--text-base);
+            margin-bottom: 18px;
+            max-width: 480px;
+            line-height: 1.55;
+        }
+
+        .hero p.hero-name {
+            font-size: var(--text-sm);
+            color: var(--primary-dark);
+            margin-bottom: 10px;
+            letter-spacing: 0.01em;
+        }
+
+        .hero p.hero-tagline {
+            font-size: var(--text-sm);
+            color: var(--text-dark);
+            opacity: 0.75;
+            margin-top: -6px;
+            margin-bottom: 24px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .hero-actions .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 220px;
+            width: auto;
+            margin: 0 auto;
+        }
+
+        .hero-image-container {
+            flex: 1;
+            position: relative;
+        }
+
+        .hero-shape-1 {
+            position: absolute;
+            top: -50px;
+            right: -80px;
+            width: 300px;
+            height: 300px;
+            background-color: var(--bg-cream);
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        .hero-image {
+            width: 100%;
+            border-radius: 200px 200px 0 0;
+            height: 600px;
+            object-fit: cover;
+        }
+
+        @media (max-width: 992px) {
+            .hero-image-container {
+                display: none;
+            }
+        }
+
+        .floating-quote {
+            position: absolute;
+            bottom: 60px;
+            left: -60px;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            max-width: 260px;
+        }
+
+        .floating-quote p {
+            font-size: var(--text-base);
+            font-family: var(--font-sans);
+            font-weight: 400;
+            margin-bottom: 0;
+            color: var(--text-dark);
+            line-height: 1.5;
+        }
+
+        .quote-icon {
+            font-size: var(--text-3xl);
+            font-family: var(--font-serif);
+            color: var(--primary-light);
+            line-height: 1;
+            margin-bottom: 5px;
+        }
+
+        .quote-heart {
+            color: var(--accent);
+            text-align: right;
+            margin-top: 10px;
+        }
+
+        /* Hero Features */
+        .hero-features {
+            display: flex;
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .hero-feature {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .feature-icon-wrapper {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            color: var(--accent);
+        }
+
+        .feature-icon-wrapper svg {
+            width: 28px;
+            height: 28px;
+        }
+
+        .hero-feature h4 {
+            font-family: var(--font-title);
+            font-size: var(--text-sm);
+            font-weight: 500;
+        }
+
+        /* Challenges Section */
+        .challenges-section {
+            background-color: #745c82;
+            padding: 100px 0;
+        }
+
+        .challenges-header {
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .challenges-header-text {
+            flex: 1;
+            max-width: 400px;
+        }
+
+        .challenges-header h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .challenges-header p {
+            font-size: var(--text-base);
+            margin-bottom: 30px;
+            color: var(--text-gray);
+        }
+
+        .challenges-grid {
+            flex: 2;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .challenge-card {
+            background: var(--white);
+            padding: 40px 25px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            height: 100%;
+            min-height: 100%;
+        }
+
+        .challenge-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 25px;
+            background-color: var(--bg-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+        }
+
+        .challenge-icon svg {
+            width: 32px;
+            height: 32px;
+        }
+
+        .challenge-icon-image {
+            width: 42px;
+            height: 42px;
+            object-fit: contain;
+            display: block;
+            filter: none;
+            fill: rgb(116, 92, 130);
+        }
+
+        .challenge-card h3 {
+            font-family: var(--font-title);
+            font-size: var(--text-lg);
+            margin-bottom: 15px;
+            font-weight: 600;
+            min-height: 2.8em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .challenge-card p {
+            font-size: var(--text-sm);
+            color: var(--text-gray);
+            line-height: 1.5;
+            margin-top: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 7.2em;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 120px 0;
+            display: flex;
+            gap: 50px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .about-image-1 {
+            display: none;
+        }
+
+        .about-content {
+            flex: 1.35;
+            padding: 0 10px 0 0;
+            max-width: 760px;
+        }
+
+        .about-content h2 {
+            font-size: 24px;
+            margin-bottom: 25px;
+        }
+
+        .about-content h2 span {
+            color: var(--primary-light);
+        }
+
+        .about-content p {
+            margin-bottom: 12px;
+            font-size: var(--text-base);
+            line-height: 1.55;
+        }
+
+        .check-list {
+            margin-bottom: 0;
+        }
+
+        .check-list li {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 12px;
+            font-weight: 500;
+            color: var(--text-dark);
+            font-size: var(--text-sm);
+        }
+
+        .check-icon {
+            width: 24px;
+            height: 24px;
+            background-color: var(--primary-dark);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .check-icon svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        .about-image-2-container {
+            flex: 0.9;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .about-image-2 {
+            width: 100%;
+            height: 560px;
+            border-radius: 16px 16px 16px 16px;
+            object-fit: cover;
+            object-position: center top;
+            box-shadow: 0 18px 40px rgba(116, 92, 130, 0.12);
+        }
+
+        .therapy-understanding {
+            position: relative;
+            padding: 100px 0;
+            background-image: linear-gradient(rgba(248, 244, 246, 0.68), rgba(248, 244, 246, 0.68)), url('images/f1.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .therapy-understanding-wrap {
+            position: relative;
+            z-index: 1;
+            max-width: 1040px;
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        .therapy-understanding .subtitle {
+            margin-bottom: 12px;
+        }
+
+        .therapy-understanding h2 {
+            margin-bottom: 28px;
+            font-size: 24px;
+            color: var(--text-dark);
+            font-family: var(--font-title);
+        }
+
+        .therapy-understanding p {
+            margin-bottom: 16px;
+            max-width: 65ch;
+            color: #2f2430;
+            font-family: var(--font-sans);
+            font-weight: 300;
+            text-shadow: 0 1px 0 rgba(255,255,255,0.3);
+        }
+
+        .info-section {
+            padding: 100px 0;
+            background-color: var(--bg-light);
+        }
+
+        .info-section.alt {
+            position: relative;
+            padding: 100px 0;
+            background-image: linear-gradient(rgba(248, 244, 246, 0.68), rgba(248, 244, 246, 0.68)), url('images/f4.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .info-section.help-section {
+            background-image: linear-gradient(rgba(253, 251, 247, 0.34), rgba(253, 251, 247, 0.34)), url('images/f9.jpg');
+            background-size: 100% 100%, 140% auto;
+            background-position: center, center top;
+            background-repeat: no-repeat, repeat-y;
+        }
+
+        @media (max-width: 768px) {
+            .info-section.help-section {
+                background-position: center, 65% top;
+            }
+        }
+
+        .info-section-wrap {
+            max-width: 1040px;
+            margin: 0 auto;
+        }
+
+        .info-section h2 {
+            font-size: 24px;
+            margin-bottom: 24px;
+            color: var(--text-dark);
+            font-family: var(--font-title);
+        }
+
+        .info-section p {
+            margin-bottom: 14px;
+            max-width: 65ch;
+            color: #2f2430;
+            font-family: var(--font-sans);
+            font-weight: 300;
+            text-shadow: 0 1px 0 rgba(255,255,255,0.3);
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(116, 92, 130, 0.12);
+            border-radius: 20px;
+            padding: 40px 32px;
+            box-shadow: 0 12px 28px rgba(116, 92, 130, 0.08);
+        }
+
+        .service-detail {
+            padding: 64px 0;
+        }
+
+        .service-card.service-feature {
+            padding: 0;
+            background: transparent;
+            border: 0;
+            border-radius: 0;
+            box-shadow: none;
+        }
+
+        .service-visual {
+            position: relative;
+            aspect-ratio: 2.35 / 1;
+            min-height: 220px;
+            max-height: 380px;
+            margin-bottom: 28px;
+            overflow: hidden;
+            border-radius: 16px;
+            background: #4a4a4a;
+            box-shadow: 0 18px 40px rgba(116, 92, 130, 0.12);
+        }
+
+        .service-visual::after {
+            position: absolute;
+            inset: 0;
+            content: '';
+            background: linear-gradient(0deg, rgba(20, 20, 20, 0.58), transparent 68%);
+        }
+
+        .service-visual img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .service-visual .service-image-couple {
+            object-position: center top;
+        }
+
+        .service-feature .service-visual h3 {
+            position: absolute;
+            z-index: 1;
+            left: clamp(20px, 5vw, 48px);
+            right: 20px;
+            bottom: clamp(18px, 4vw, 36px);
+            margin: 0;
+            color: #fff;
+            font-size: clamp(1.8rem, 1.5rem + 0.8vw, 2.4rem);
+            line-height: 1.2;
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+        }
+
+        .service-card h3 {
+            font-family: var(--font-title);
+            font-size: clamp(1.8rem, 1.5rem + 0.8vw, 2.4rem);
+            color: var(--text-dark);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .service-card p {
+            margin-bottom: 16px;
+        }
+
+        .service-card .service-meta {
+            margin-top: 22px;
+            padding-top: 12px;
+            border-top: 1px solid rgba(116, 92, 130, 0.12);
+            color: var(--text-dark);
+            font-size: 0.97rem;
+        }
+
+        .service-card .btn {
+            margin-top: 12px;
+        }
+
+        .service-topics {
+            list-style: none;
+            margin: 18px 0 24px;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 10px 18px;
+            max-width: 700px;
+        }
+
+        .service-topics li {
+            position: relative;
+            padding-left: 18px;
+            color: var(--text-gray);
+            font-size: var(--text-sm);
+            line-height: 1.6;
+        }
+
+        .service-topics li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--primary-light);
+            font-size: 1.2rem;
+            line-height: 1.2;
+        }
+
+        .help-grid {
+            margin-top: 36px;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .help-card {
+            background: rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(116, 92, 130, 0.12);
+            border-radius: 18px;
+            padding: 26px 22px;
+            box-shadow: 0 10px 20px rgba(116, 92, 130, 0.05);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .help-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 26px rgba(116, 92, 130, 0.08);
+        }
+
+        .help-card h4 {
+            font-family: var(--font-title);
+            font-size: clamp(1.4rem, 1.1rem + 0.5vw, 1.8rem);
+            color: var(--text-dark);
+            margin-bottom: 12px;
+            line-height: 1.2;
+        }
+
+        .help-card p {
+            margin-bottom: 0;
+            font-size: var(--text-sm);
+            color: var(--text-gray);
+        }
+
+        .pricing-section {
+            padding: 76px 0;
+            background: #f2efeb;
+        }
+
+        .pricing-content {
+            max-width: 1040px;
+            margin: 0 auto;
+        }
+
+        .pricing-heading {
+            margin-bottom: 30px;
+        }
+
+        .pricing-kicker {
+            margin-bottom: 8px;
+            color: var(--primary-light);
+            font-size: var(--text-xs);
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .pricing-heading h4,
+        .bonus-heading h4 {
+            color: var(--text-dark);
+            font-family: var(--font-title);
+            font-size: 24px;
+            line-height: 1.2;
+        }
+
+        .pricing-heading h4 {
+            margin-bottom: 10px;
+        }
+
+        .pricing-heading > p:last-child {
+            margin-bottom: 0;
+        }
+
+        .pricing-options {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 26px;
+        }
+
+        .pricing-option {
+            margin: 0;
+        }
+
+        .pricing-option + .pricing-option {
+            padding-left: 26px;
+            border-left: 1px solid rgba(116, 92, 130, 0.18);
+        }
+
+        .pricing-option h4 {
+            margin-bottom: 12px;
+            color: var(--text-dark);
+            font-family: var(--font-title);
+            font-size: 20px;
+            line-height: 1.2;
+        }
+
+        .pricing-location {
+            margin: 4px 0 12px;
+            color: var(--text-gray);
+            font-size: var(--text-sm);
+        }
+
+        .pricing-list,
+        .bonus-prices {
+            margin: 0;
+        }
+
+        .pricing-row,
+        .bonus-prices > div {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 14px 0;
+            border-top: 1px solid rgba(116, 92, 130, 0.14);
+        }
+
+        .pricing-row dt,
+        .bonus-prices dt {
+            color: var(--text-gray);
+        }
+
+        .pricing-row dt small {
+            display: block;
+            color: #777078;
+            font-size: var(--text-xs);
+        }
+
+        .pricing-row dd,
+        .bonus-prices dd {
+            flex: 0 0 auto;
+            color: var(--primary-dark);
+            font-family: var(--font-sans-semibold);
+            font-size: var(--text-lg);
+            text-align: right;
+        }
+
+        .pricing-family-note {
+            max-width: none;
+            margin: 18px 0 0;
+            padding-left: 14px;
+            border-left: 2px solid var(--primary-light);
+            font-size: var(--text-sm);
+        }
+
+        .bonus-heading {
+            margin: 38px 0 18px;
+        }
+
+        .bonus-heading h4 {
+            margin-bottom: 6px;
+        }
+
+        .bonus-heading p {
+            margin-bottom: 0;
+            font-size: var(--text-sm);
+        }
+
+        .bonus-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .pricing-bonus {
+            margin-top: 38px;
+        }
+
+        .bonus-card {
+            padding-top: 14px;
+            border-top: 2px solid rgba(116, 92, 130, 0.32);
+        }
+
+        .bonus-card h4 {
+            margin-bottom: 4px;
+            color: var(--text-dark);
+            font-family: var(--font-sans-semibold);
+            font-size: var(--text-base);
+            line-height: 1.35;
+        }
+
+        .bonus-duration {
+            margin-bottom: 10px;
+            color: var(--text-gray);
+            font-size: var(--text-xs);
+        }
+
+        .bonus-prices > div {
+            padding: 9px 0;
+        }
+
+        .bonus-prices dt {
+            font-size: var(--text-sm);
+        }
+
+        .bonus-prices dd {
+            font-size: var(--text-base);
+        }
+
+        .pricing-expiry {
+            max-width: none;
+            margin: 22px 0 0;
+            padding-top: 14px;
+            border-top: 1px solid rgba(116, 92, 130, 0.18);
+            font-size: var(--text-sm);
+        }
+
+        @media (max-width: 768px) {
+            .service-card {
+                padding: 28px 20px;
+            }
+
+            .service-visual {
+                aspect-ratio: 1.6 / 1;
+                min-height: 0;
+            }
+
+            .service-topics {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+
+            .help-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .pricing-section {
+                padding: 52px 0;
+            }
+
+            .pricing-options,
+            .bonus-grid {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
+
+            .pricing-option + .pricing-option {
+                padding: 18px 0 0;
+                border-top: 1px solid rgba(116, 92, 130, 0.18);
+                border-left: 0;
+            }
+
+        }
+
+        .experience-badge {
+            position: absolute;
+            bottom: -25px;
+            left: -40px;
+            background-color: var(--primary-dark);
+            color: white;
+            padding: 25px 35px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 10px 30px rgba(7, 70, 68, 0.2);
+        }
+
+        .experience-badge .stars {
+            font-size: var(--text-xl);
+        }
+
+        .experience-text {
+            font-weight: 600;
+            font-size: var(--text-lg);
+            line-height: 1.3;
+        }
+
+        .experience-text span {
+            display: block;
+            font-size: var(--text-sm);
+            font-weight: 400;
+            opacity: 0.9;
+        }
+
+        /* Journey Section */
+        .journey-section {
+            padding: 100px 0;
+            text-align: center;
+            background-color: var(--bg-light);
+        }
+
+        .journey-section h2 {
+            font-size: var(--text-3xl);
+            margin-bottom: 70px;
+        }
+
+        .journey-steps {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .journey-steps::before {
+            content: '';
+            position: absolute;
+            top: 45px;
+            left: 80px;
+            right: 80px;
+            height: 2px;
+            background-image: linear-gradient(to right, var(--border-color) 40%, transparent 40%);
+            background-size: 12px 2px;
+            z-index: 1;
+        }
+
+        .step {
+            position: relative;
+            z-index: 2;
+            width: 200px;
+            background: var(--bg-light);
+        }
+
+        .step-icon {
+            width: 90px;
+            height: 90px;
+            background-color: var(--bg-cream);
+            border-radius: 50%;
+            margin: 0 auto 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-light);
+            position: relative;
+        }
+
+        .step-icon svg {
+            width: 36px;
+            height: 36px;
+        }
+
+        .step-number {
+            position: absolute;
+            bottom: -5px;
+            right: 5px;
+            width: 28px;
+            height: 28px;
+            background-color: var(--primary-dark);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--text-sm);
+            font-weight: 600;
+        }
+
+        .step h4 {
+            font-family: var(--font-sans);
+            font-size: var(--text-lg);
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .step p {
+            font-size: var(--text-sm);
+            color: var(--text-gray);
+        }
+
+        /* Testimonials */
+        .testimonials-section {
+            background-color: var(--bg-cream);
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .testimonials-section h2 {
+            font-size: var(--text-3xl);
+            margin-bottom: 60px;
+        }
+
+        .testimonials-grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 16px;
+            text-align: left;
+            width: calc(33.333% - 20px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .testimonial-card .quote-mark {
+            color: var(--primary-light);
+            font-size: var(--text-3xl);
+            font-family: var(--font-serif);
+            line-height: 1;
+            margin-bottom: 15px;
+        }
+
+        .testimonial-card p {
+            flex-grow: 1;
+            font-size: var(--text-sm);
+            margin-bottom: 35px;
+            color: var(--text-dark);
+            line-height: 1.7;
+        }
+
+        .client-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .client-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .client-details h4 {
+            font-family: var(--font-sans);
+            font-size: var(--text-sm);
+            margin-bottom: 2px;
+            font-weight: 600;
+        }
+
+        .client-details span {
+            font-size: var(--text-xs);
+            color: var(--text-gray);
+        }
+
+        .nav-btn {
+            position: absolute;
+            top: 55%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            cursor: pointer;
+            color: var(--primary-dark);
+        }
+
+        .nav-prev {
+            left: 80px;
+        }
+
+        .nav-next {
+            right: 80px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 60px 20px;
+            background-color: var(--bg-light);
+        }
+
+        .cta-box {
+            position: relative;
+            background-color: var(--primary-dark);
+            border-radius: 20px;
+            padding: 50px 80px 50px 150px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            max-width: 1200px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .cta-image {
+            width: 75px;
+            height: 75px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: none;
+            box-shadow: none;
+        }
+
+        .cta-text {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            z-index: 1;
+        }
+
+        .cta-text h2 {
+            color: white;
+            font-size: var(--text-3xl);
+            margin-bottom: 8px;
+            white-space: nowrap;
+        }
+
+        .cta-text p {
+            font-size: var(--text-base);
+            opacity: 1;
+            color: rgba(255, 255, 255, 0.92);
+            margin: 0;
+        }
+
+        .cta-box .btn {
+            background-color: white;
+            color: var(--primary-dark);
+            font-weight: 600;
+            padding: 15px 30px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .cta-box {
+                padding: 24px;
+                flex-direction: column;
+                align-items: flex-start;
+                text-align: left;
+                gap: 24px;
+            }
+
+            .cta-image {
+                width: 75px;
+                height: 75px;
+                border-radius: 50%;
+                border: none;
+                box-shadow: none;
+                display: block;
+                object-fit: cover;
+            }
+
+            .cta-text {
+                align-items: center;
+                width: 100%;
+                flex-direction: row;
+                text-align: left;
+                gap: 25px;
+            }
+
+            .cta-text h2 {
+                font-size: var(--text-2xl);
+                margin-bottom: 10px;
+            }
+
+            .cta-text p {
+                font-size: 15px;
+                line-height: 1.5;
+                margin-bottom: 20px;
+            }
+
+            .cta-box .btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+                text-align: center;
+            }
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--bg-light);
+            padding: 28px 0 18px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2.5fr 1fr 1fr 1fr 1.5fr;
+            gap: 40px;
+        }
+
+        .footer-logo {
+            padding-right: 40px;
+        }
+
+        .footer-logo p {
+            font-size: var(--text-sm);
+            margin-top: 20px;
+            line-height: 1.6;
+        }
+
+        .footer-column h4 {
+            font-family: var(--font-sans);
+            font-size: var(--text-base);
+            margin-bottom: 25px;
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-column ul a {
+            font-size: var(--text-sm);
+            color: var(--text-gray);
+        }
+
+        .footer-column ul a:hover {
+            color: var(--primary-light);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .social-icon {
+            width: 36px;
+            height: 36px;
+            border: 1px solid var(--border-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-dark);
+            transition: all 0.3s;
+        }
+
+        .social-icon img {
+            width: 18px;
+            height: 18px;
+            object-fit: contain;
+            display: block;
+            filter: grayscale(1) brightness(0.6) opacity(0.8);
+            transition: filter 0.25s ease, transform 0.25s ease;
+        }
+
+        .social-icon:hover,
+        .social-icon:focus,
+        .social-icon:active {
+            background-color: var(--primary-dark);
+            color: #FDFBF7;
+        }
+
+        .social-icon:hover img,
+        .social-icon:focus img,
+        .social-icon:active img {
+            filter: brightness(0) invert(1) sepia(0.2) saturate(0) hue-rotate(0deg) contrast(1.3);
+            transform: scale(1.05);
+        }
+
+        .contact-info {
+            font-size: var(--text-sm);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            font-size: var(--text-xs);
+            padding-top: 15px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-gray);
+        }
+
+        /* Final mobile override for challenge cards - placed last so it always wins */
+        @media (max-width: 992px) {
+            .challenges-section {
+                padding: 50px 0 20px;
+            }
+
+            .challenges-header {
+                margin-bottom: 0;
+                justify-content: center;
+            }
+
+            .challenges-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+                gap: 15px !important;
+                max-width: 460px;
+            }
+
+            .challenge-card {
+                max-width: 210px;
+                padding: 20px 15px !important;
+            }
+
+            .challenge-icon {
+                width: 62px;
+                height: 62px;
+                margin-bottom: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body id="top">
+
+    <!-- Header (sticky) -->
+    <div class="site-header" id="site-header">
+    <div class="container">
+        <header>
+            <div class="logo">
+                <img src="images/logo.png" alt="Logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#top" class="active">Inicio</a></li>
+                    <li><a href="#sobre-mi">Sobre mí</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#tarifas">Tarifas</a></li>
+                    <li><a href="#footer">Contacto</a></li>
+                </ul>
+            </nav>
+            <a href="https://wa.me/34680718945" class="btn btn-primary header-btn">Pide una cita</a>
+            
+            <!-- Mobile menu toggle -->
+            <div class="menu-toggle" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </header>
+    </div>
+    </div>
+    <div class="header-spacer" aria-hidden="true"></div>
+    
+    <!-- Mobile Menu Overlay -->
+    <div class="menu-overlay" onclick="toggleMobileMenu()"></div>
+    
+    <!-- Mobile Menu - Full page dropdown -->
+    <div class="mobile-menu">
+        <ul class="mobile-nav">
+            <li><a href="#top" class="active" onclick="toggleMobileMenu()">Inicio</a></li>
+            <li><a href="#sobre-mi" onclick="toggleMobileMenu()">Sobre mí</a></li>
+            <li><a href="#intro-servicios" onclick="toggleMobileMenu()">Servicios</a></li>
+            <li><a href="#en-que-puedo-ayudarte" onclick="toggleMobileMenu()">¿En qué puedo ayudarte?</a></li>
+            <li><a href="#tarifas" onclick="toggleMobileMenu()">Tarifas</a></li>
+            <li><a href="#footer" onclick="toggleMobileMenu()">Contacto</a></li>
+        </ul>
+        <a href="https://wa.me/34680718945" class="btn btn-primary" onclick="toggleMobileMenu()" style="max-width: 280px; margin: 30px auto 0;">Pide una cita</a>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="container">
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Un espacio para escucharte, comprenderte y avanzar.</h1>
+                <p class="hero-name">Soy <strong>Elizabeth Espinosa</strong>, Psicóloga General Sanitaria.</p>
+                <p>Te acompaño a comprender lo que estás viviendo, encontrar nuevas herramientas y avanzar hacia una vida que se ajuste a lo que necesitas.</p>
+                <p class="hero-tagline">Terapia online y presencial en San Fernando para adultos, parejas y familias.</p>
+                <div class="hero-actions">
+                    <a href="https://wa.me/34680718945" class="btn btn-primary">Solicitar información &rarr;</a>
+                </div>
+
+                <div class="hero-features">
+                    <div class="hero-feature">
+                        <div class="feature-icon-wrapper">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
+                                </path>
+                            </svg>
+                        </div>
+                        <h4>Confidencial<br>y Seguro</h4>
+                    </div>
+                    <div class="hero-feature">
+                        <div class="feature-icon-wrapper">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                            </svg>
+                        </div>
+                        <h4>Enfoque<br>Personalizado</h4>
+                    </div>
+                    <div class="hero-feature">
+                        <div class="feature-icon-wrapper">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z">
+                                </path>
+                            </svg>
+                        </div>
+                        <h4>Apoyo para un<br>Cambio Duradero</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-image-container">
+                <div class="hero-shape-1"></div>
+                <img src="images/eli.jpeg"
+                    alt="Elizabeth Espinosa" class="hero-image">
+                <div class="floating-quote">
+                    <div class="quote-icon">&ldquo;</div>
+                    <p>Sanar lleva tiempo, y pedir ayuda es un paso valiente.</p>
+                    <div class="quote-heart">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z">
+                            </path>
+                        </svg>
+                    </div>
+                </div><
+            </div>
+        </section>
+    </div>
+
+    <!-- Challenges Section -->
+    <section class="challenges-section" id="servicios">
+        <div class="container">
+            <div class="challenges-header">
+                <div class="challenges-grid">
+                    <div class="challenge-card">
+                        <div class="challenge-icon">
+                            <img class="challenge-icon-image" src="images/espacioseguro.png" alt="Espacio seguro" />
+                        </div>
+                        <h3>Espacio seguro</h3>
+                        <p>Un lugar donde puedas expresarte con libertad, respeto y sin juicios.</p>
+                    </div>
+                    <div class="challenge-card">
+                        <div class="challenge-icon" style="color: #6f5e7d;">
+                            <img class="challenge-icon-image" src="images/cercania.png" alt="Cercanía" />
+                        </div>
+                        <h3>Cercanía</h3>
+                        <p>Un acompañamiento humano, cálido y comprensivo.</p>
+                    </div>
+                    <div class="challenge-card">
+                        <div class="challenge-icon">
+                            <img class="challenge-icon-image" src="images/terapiapersonalizada.png" alt="Terapia personalizada" />
+                        </div>
+                        <h3>Terapia personalizada</h3>
+                        <p>Adaptada a tu historia, tus necesidades y tus propios ritmos.</p>
+                    </div>
+                    <div class="challenge-card">
+                        <div class="challenge-icon">
+                            <img class="challenge-icon-image" src="images/evidenciacientifica.png" alt="Evidencia científica" />
+                        </div>
+                        <h3>Evidencia científica</h3>
+                        <p>Una terapia basada en herramientas y tratamientos que han demostrado su eficacia.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- Challenges Section -->
+    <section class="challenges-section" style="display: none;">
+        <div class="container">
+            <div class="challenges-header">
+                <div class="challenges-header-text">
+                    <div class="subtitle" style="justify-content: flex-start; margin-bottom: 15px;">Cómo puede ayudar la
+                        terapia</div>
+                    <h2>Apoyo para los Desafíos de la Vida</h2>
+                    <p>A veces la vida puede resultar abrumadora. La terapia proporciona un espacio para comprenderte,
+                        sanar y avanzar con claridad y confianza.</p>
+                    <a href="#" class="btn btn-primary" style="margin-top: 10px;">Explorar Servicios &rarr;</a>
+                </div>
+
+                <div class="challenges-grid">
+                    <div class="challenge-card">
+                        <div class="challenge-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z">
+                                </path>
+                            </svg>
+                        </div>
+                        <h3>Ansiedad y Estrés</h3>
+                        <p>Maneja la ansiedad, reduce el estrés y encuentra la calma en tu día a día.</p>
+                    </div>
+                    <div class="challenge-card">
+                        <div class="challenge-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z">
+                                </path>
+                            </svg>
+                        </div>
+                        <h3>Depresión</h3>
+                        <p>Encuentra apoyo, esperanza y herramientas para mejorar tu bienestar.</p>
+                    </div>
+                    <div class="challenge-card">
+                        <div class="challenge-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z">
+                                </path>
+                            </svg>
+                        </div>
+                        <h3>Relaciones</h3>
+                        <p>Construye relaciones más sanas y mejora tu comunicación.</p>
+                    </div>
+                    <div class="challenge-card">
+                        <div class="challenge-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z">
+                                </path>
+                            </svg>
+                        </div>
+                        <h3>Crecimiento Personal</h3>
+                        <p>Aumenta el autoconocimiento, desarrolla confianza y crea cambios duraderos.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <div class="container" id="sobre-mi">
+        <section class="about-section">
+            <div class="about-content">
+                <div class="subtitle" style="justify-content: flex-start;display: none;">SOBRE MÍ</div>
+                <h2 style="margin-bottom: 20px; text-align: left;">¡Bienvenidas y bienvenidos!</h2>
+
+                <p><strong>Soy Elizabeth Espinosa, Psicóloga General Sanitaria</strong> (Col. n.º AN12952).</p>
+
+                <p style="color: #745c82;font-size: 17px !important;"><strong>La Psicología siempre ha formado parte de mi manera de mirar a las personas.</strong></p>
+
+                <p>Desde siempre he sido una persona muy observadora y reflexiva. Me fijo mucho en cómo somos, cómo nos relacionamos y qué hay detrás de lo que sentimos, pensamos y hacemos. También he sido esa persona a la que su entorno acudía cuando necesitaba hablar, ordenar sus ideas o simplemente sentirse escuchado y no juzgado.</p>
+
+                <p>Por eso, elegir Psicología fue algo que tuve claro desde el principio. Con el tiempo, la formación y la experiencia profesional han ido dando forma a mi manera de entender esta profesión y a la forma en la que quiero acompañar a las personas.</p>
+
+                <p>Para mí, ser psicóloga no consiste en tener todas las respuestas ni en decirle a alguien qué debería hacer. Consiste en <strong>escuchar, comprender, validar y acompañar</strong>, ayudando a encontrar nuevas perspectivas y herramientas para afrontar aquello que estamos viviendo, siempre respetando la historia y el ritmo de cada persona.</p>
+            </div>
+
+            <div class="about-image-2-container">
+                <img src="images/eli.jpeg"
+                    alt="Elizabeth Espinosa" class="about-image-2">
+            </div>
+        </section>
+    </div>
+
+    <section class="therapy-understanding">
+        <div class="container">
+            <div class="therapy-understanding-wrap">
+                <h2>¿Cómo entiendo la terapia?</h2>
+
+                <p>Para mí, la terapia es un espacio propio en el que poder parar, escucharte y comprender qué está ocurriendo. Un lugar donde puedas expresarte con libertad, sentirte comprendido/a y trabajar aquello que necesitas.</p>
+
+                <p>Creo que cada persona llega con una historia, unas circunstancias y una forma diferente de afrontar lo que le ocurre. Por eso, considero fundamental <strong>respetar los ritmos de cada persona</strong> y adaptar el proceso a sus necesidades, sin imponer tiempos ni caminos.</p>
+
+                <p>Trabajo desde una <em>mirada cercana, humana y respetuosa</em>, pero también desde el rigor que implica ejercer una profesión sanitaria. Mi práctica está basada en la <strong>evidencia científica</strong> y en una <strong>formación continua</strong> que me permite seguir incorporando conocimientos y herramientas a mi trabajo.</p>
+
+                <p>Mi objetivo no es decirte quién tienes que ser ni darte respuestas prefabricadas. Es acompañarte a comprender lo que estás viviendo, descubrir qué necesitas y encontrar herramientas que te ayuden a avanzar hacia aquello que quieres construir.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="info-section">
+        <div class="container">
+            <div class="info-section-wrap">
+                <h2>Mi formación</h2>
+                <p>Mi formación comenzó con el <strong>Grado en Psicología</strong> en la Universidad de Cádiz y continuó con el <strong>Máster en Psicología General Sanitaria</strong> en la Universidad de Sevilla. A lo largo de mi trayectoria he querido profundizar especialmente en el ámbito de las relaciones y la familia, por lo que realicé también un <strong>Máster en Intervención y Mediación Familiar</strong> y un <strong>Máster en Sexología y Terapia de Pareja</strong>.</p>
+                <p>Además, he realizado numerosos cursos y formaciones complementarias en diferentes ámbitos de la profesión, manteniendo una formación continua que me permite ampliar y actualizar mis conocimientos y herramientas de intervención.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="info-section alt">
+        <div class="container">
+            <div class="info-section-wrap">
+                <h2>Mi experiencia profesional</h2>
+                <p>A lo largo de mi formación y trayectoria profesional he tenido la oportunidad de conocer diferentes contextos de intervención psicológica, tanto en el ámbito de la <strong>salud mental como en el educativo, familiar y comunitario.</strong></p>
+                <p>Durante mi formación tuve la oportunidad de acercarme a la atención psicológica en distintos contextos, entre ellos una <strong>Unidad de Salud Mental Comunitaria del sistema público</strong> y un <strong>Servicio de Asistencia Psicológica Universitaria.</strong></p>
+                <p>Posteriormente, desarrollé mi experiencia profesional en el ámbito de la <strong>investigación y la protección de menores</strong>, participando en proyectos relacionados con las familias colaboradoras y en publicaciones científicas.</p>
+                <p>También he trabajado en el ámbito de la <strong>adopción y el acogimiento familiar</strong>, realizando valoraciones de idoneidad, formaciones y acompañamiento psicológico a familias.</p>
+                <p>Actualmente desarrollo mi actividad profesional por cuenta propia, acompañando a <strong>personas adultas, parejas y familias</strong>, tanto en modalidad online como presencialmente en San Fernando.</p>
+                <p>Además, <strong>colaboro de manera voluntaria con una asociación orientada al acompañamiento en procesos de duelo</strong>, donde participo en la realización de talleres y en el acompañamiento psicológico a personas que están atravesando una pérdida.</p>
+                <p>Todas estas experiencias han ido enriqueciendo mi manera de entender la Psicología y reforzando la importancia de <strong>mirar a cada persona desde una perspectiva integral</strong>, teniendo en cuenta su historia, sus circunstancias, su contexto y el momento vital en el que se encuentra.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="info-section">
+        <div class="container">
+            <div class="info-section-wrap">
+                <h2>Un espacio para ti</h2>
+                <p>Si has llegado hasta aquí, quizá estés pensando en empezar un proceso de acompañamiento. <strong>No necesitas tener claro qué te ocurre ni saber por dónde comenzar.</strong></p>
+                <p>Podemos simplemente hablar y, desde ahí, ir dando forma juntos/as <strong>a aquello que necesitas y al camino que quieres recorrer.</strong></p>
+            </div>
+        </div>
+    </section>
+
+<!-- Intro Servicios -->
+<section class="info-section" id="intro-servicios" style="background-color: #FDFBF7;">
+    <div class="container">
+        <div class="info-section-wrap">
+            <h2>SERVICIOS</h2>
+            <p style="color: #745c82;font-size: 17px !important;"><strong> <em>Un espacio para trabajar en aquello que necesitas</em> </strong></p>
+            <p>Cada proceso terapéutico es diferente. Por eso, no parto de un método cerrado, sino de comprender qué está ocurriendo, qué necesitas en este momento y qué quieres conseguir.</p>
+            <p>La terapia puede ayudarte a entender mejor lo que estás viviendo, modificar aquello que te está generando malestar y desarrollar recursos para afrontar las situaciones de una manera diferente.</p>
+            <p>Trabajo principalmente desde la <strong>psicoterapia individual, la terapia de pareja y la intervención familiar</strong>, además de desarrollar <strong>talleres y actividades psicoeducativas</strong>.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Terapia para adultos -->
+<section class="info-section service-detail">
+    <div class="container">
+        <div class="info-section-wrap service-card service-feature">
+            <div class="service-visual">
+                <img src="images/adultos.jpeg" alt="">
+                <h3>Terapia para adultos</h3>
+            </div>
+            <p><strong><em>Te acompaño a comprender lo que estás viviendo, afrontar las dificultades emocionales y personales y encontrar recursos para avanzar hacia tu bienestar.</em></strong></p>
+            <p>La psicoterapia individual es un espacio donde poder parar, poner en palabras lo que nos ocurre y comprender por qué nos estamos sintiendo así.</p>
+            <p>Un proceso en el que podamos explorar lo que está ocurriendo, comprender cómo está influyendo en tu bienestar y trabajar sobre aquello que necesitas cambiar o aprender a afrontar de otra manera.</p>
+            <p>El vínculo terapéutico es una parte esencial del proceso. Por eso, para mí es importante construir una relación basada en la confianza, el respeto y la ausencia de juicios, donde puedas sentirte cómodo/a para hablar de aquello que te preocupa.</p>
+            <p>A lo largo de las sesiones podemos trabajar aspectos relacionados con la <strong>ansiedad, el estrés, el estado de ánimo, la autoestima, el desarrollo personal, la gestión emocional, el duelo y las pérdidas, las relaciones, los procesos de cambio</strong> u otras situaciones que estén afectando a tu bienestar.</p>
+            <p class="service-meta"><strong>Modalidad:</strong> Online y presencial en San Fernando<br><strong>Duración:</strong> 60 minutos</p>
+            <a href="https://wa.me/34680718945" class="btn btn-primary">Pedir cita</a>
+        </div>
+    </div>
+</section>
+
+<!-- Terapia de pareja -->
+<section class="info-section service-detail">
+    <div class="container">
+        <div class="info-section-wrap service-card service-feature">
+            <div class="service-visual">
+                <img src="images/terapia_pareja.jpeg" alt="" class="service-image-couple">
+                <h3>Terapia de pareja</h3>
+            </div>
+            <p><strong><em>Os acompaño a comprender lo que está ocurriendo, mejorar vuestra comunicación, encontrar nuevas formas de afrontar juntos las dificultades y/o tomar decisiones conscientes sobre vuestro camino.</em></strong></p>
+            <p>Las parejas atraviesan diferentes etapas y no siempre resulta fácil afrontar juntas los cambios, los conflictos o las dificultades que pueden aparecer con el paso del tiempo. En ocasiones, las discusiones se vuelven recurrentes, la comunicación se deteriora o aparece una distancia que hace difícil volver a conectar.</p>
+            <p>La terapia de pareja ofrece un espacio en el que ambos podáis expresar cómo estáis viviendo la situación y comprender también la perspectiva del otro. Se trata de poder hablar de aquello que está ocurriendo con la ayuda de una mirada profesional, evitando que las sesiones se conviertan simplemente en un lugar donde discutir o buscar quién tiene razón.</p>
+            <p>A lo largo del proceso podemos trabajar aspectos como la <strong>comunicación, la resolución de conflictos, los patrones y dinámicas que se repiten, los roles que ocupáis, la gestión de las emociones, la confianza, los límites, la convivencia, la intimidad y sexualidad</strong>, así como los cambios o decisiones importantes que podáis estar atravesando.</p>
+            <p>También puede ser un espacio para aprender a expresar necesidades y expectativas de una manera diferente, escuchar al otro sin perder de vista las propias necesidades y explorar qué necesita cada persona.</p>
+            <p>En algunos casos, el proceso puede estar orientado a <strong>mejorar y fortalecer la relación</strong>. En otros, puede ayudar a comprender que continuar juntos no es lo que ambos desean y facilitar una <strong>toma de decisiones consciente y una posible separación de una forma saludable y respetuosa</strong>.</p>
+            <p>El objetivo no es decidir por vosotros qué camino debéis tomar, sino acompañaros a comprender qué está sucediendo y a encontrar la manera de afrontar este momento que resulte más adecuada para ambos.</p>
+            <p class="service-meta"><strong>Modalidad:</strong> Online y presencial en San Fernando.<br><strong>Duración:</strong> 75 minutos</p>
+            <a href="https://wa.me/34680718945" class="btn btn-primary">Pedir cita</a>
+        </div>
+    </div>
+</section>
+
+<!-- Intervención familiar -->
+<section class="info-section service-detail">
+    <div class="container">
+        <div class="info-section-wrap service-card service-feature">
+            <div class="service-visual">
+                <img src="images/intervencion_familiar.jpeg" alt="">
+                <h3>Intervención familiar</h3>
+            </div>
+            <p><strong><em>Os acompaño a comprender las dificultades que estáis atravesando, mejorar la comunicación y fortalecer una convivencia más saludable.</em></strong></p>
+            <p>Las dificultades que aparecen dentro de una familia pueden afectar a varios de sus miembros y, en ocasiones, resulta necesario trabajar sobre las dinámicas que se están produciendo.</p>
+            <p>La intervención familiar permite crear un espacio compartido en el que comprender diferentes puntos de vista, mejorar la comunicación y buscar formas más saludables de relacionarse.</p>
+            <p>Podemos trabajar dificultades en la <strong>convivencia, conflictos familiares, relaciones entre padres e hijos, cambios importantes, procesos de adaptación</strong> o situaciones que estén afectando al bienestar de la familia.</p>
+            <p>Cada intervención se adapta a las características, necesidades y circunstancias de cada familia.</p>
+            <p class="service-meta"><strong>Modalidad:</strong> Online y presencial en San Fernando.<br><strong>Duración:</strong> Adaptada a las características de cada intervención (90 minutos aprox.).</p>
+            <a href="https://wa.me/34680718945" class="btn btn-primary">Consultar</a>
+        </div>
+    </div>
+</section>
+
+<!-- Talleres y actividades psicoeducativas -->
+<section class="info-section">
+    <div class="container">
+        <div class="info-section-wrap service-card">
+            <h3>Talleres y actividades psicoeducativas</h3>
+            <p><strong><em>Creo espacios para aprender, reflexionar y adquirir herramientas que favorezcan el bienestar emocional y personal.</em></strong> </p>
+            <p>También diseño e imparto talleres y actividades psicoeducativas dirigidos a diferentes colectivos y entidades.</p>
+            <p>Son propuestas dinámicas y participativas en las que acercar la Psicología a diferentes contextos, proporcionando conocimientos y herramientas que puedan resultar útiles en el día a día.</p>
+            <p>Algunos de los temas que podemos trabajar son:</p>
+            <ul class="service-topics">
+                <li>Gestión emocional</li>
+                <li>Ansiedad y estrés</li>
+                <li>Autoestima</li>
+                <li>Duelo y pérdidas</li>
+                <li>Relaciones y comunicación</li>
+                <li>Pareja</li>
+                <li>Límites y autocuidado</li>
+                <li>Educación emocional</li>
+            </ul>
+            <p>Los contenidos, la duración y el formato pueden adaptarse a las características y necesidades de cada grupo.</p>
+            <p class="service-meta"><strong>Dirigidos a:</strong> asociaciones, centros, empresas, grupos y otras entidades.<br><strong>Modalidad:</strong> Presencial.</p>
+            <a href="https://wa.me/34680718945" class="btn btn-primary">Solicitar información</a>
+        </div>
+    </div>
+</section>
+
+    <!-- En qué puedo ayudarte -->
+    <section class="info-section help-section" id="en-que-puedo-ayudarte">
+        <div class="container">
+            <div class="info-section-wrap">
+                <h2>¿En qué puedo ayudarte?</h2>
+                <p>No siempre es fácil poner en palabras lo que nos ocurre. Puede que estés atravesando un momento concreto, que sientas que algo no funciona como antes o que simplemente quieras comprenderte mejor.</p>
+                <p>En terapia podemos explorar qué está ocurriendo, qué necesitas y qué herramientas pueden ayudarte a afrontar aquello que estás viviendo.</p>
+            </div>
+
+            <div class="help-grid">
+                <div class="help-card">
+                    <h4>Ansiedad y estrés</h4>
+                    <p>Preocupación constante, sensación de desbordamiento, dificultad para desconectar, miedo, tensión o estrés mantenido.</p>
+                </div>
+                <div class="help-card">
+                    <h4>Estado de ánimo y depresión</h4>
+                    <p>Tristeza persistente, apatía, desmotivación, pérdida de interés, dificultad para disfrutar de las cosas o cambios en el estado de ánimo.</p>
+                </div>
+                <div class="help-card">
+                    <h4>Autoestima y autoconocimiento</h4>
+                    <p>Inseguridad, autocrítica, comparación, necesidad de aprobación o dificultad para reconocer y atender tus propias necesidades.</p>
+                </div>
+                <div class="help-card">
+                    <h4>Gestión emocional</h4>
+                    <p>Dificultades para identificar, comprender, expresar o manejar determinadas emociones.</p>
+                </div>
+                <div class="help-card">
+                    <h4>Duelo y pérdidas</h4>
+                    <p>Te acompaño a afrontar y elaborar pérdidas significativas, ya sean de una persona, una relación, una etapa vital, la salud, un proyecto, planes de futuro, unas expectativas, una forma de vida o cualquier otra experiencia que haya supuesto un cambio importante en tu vida.</p>
+                </div>
+                <div class="help-card">
+                    <h4>Relaciones y conflictos interpersonales</h4>
+                    <p>Dificultades en las relaciones, conflictos, límites, dependencia emocional o patrones relacionales que generan malestar.</p>
+                </div>
+                <div class="help-card">
+                    <h4>Pareja</h4>
+                    <p>Problemas de comunicación, conflictos recurrentes, distanciamiento, dificultades en la convivencia, crisis o cambios importantes en la relación.</p>
+                </div>
+                <div class="help-card">
+                    <h4>Familia</h4>
+                    <p>Dificultades en la convivencia, conflictos familiares, comunicación, relaciones entre padres e hijos o situaciones que estén afectando al bienestar familiar.</p>
+                </div>
+                <div class="help-card">
+                    <h4>Cambios y crisis vitales</h4>
+                    <p>Rupturas, toma de decisiones, cambios personales o profesionales, adaptación a nuevas etapas y otras situaciones de transición.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing-section" id="tarifas">
+        <div class="container">
+            <div class="pricing-content">
+                <div class="info-section-wrap service-card pricing-comparison">
+                    <div class="pricing-heading">
+                        <p class="pricing-kicker">Información económica</p>
+                        <h4>Tarifas</h4>
+                        <p>Elige la modalidad que mejor se adapte a ti. Los precios indicados son por sesión.</p>
+                    </div>
+
+                    <div class="pricing-options">
+                        <article class="pricing-option">
+                            <h4>Online</h4>
+                            <p class="pricing-location">Realizadas por videollamada a través de Google Meet, desde la comodidad y privacidad de tu espacio.</p>
+                            <dl class="pricing-list">
+                                <div class="pricing-row">
+                                    <dt>Psicoterapia individual <small>1 hora</small></dt>
+                                    <dd>40 €</dd>
+                                </div>
+                                <div class="pricing-row">
+                                    <dt>Terapia de pareja <small>1 hora y 15 minutos</small></dt>
+                                    <dd>50 €</dd>
+                                </div>
+                                <div class="pricing-row">
+                                    <dt>Intervención familiar</dt>
+                                    <dd>65 €</dd>
+                                </div>
+                            </dl>
+                        </article>
+
+                        <article class="pricing-option">
+                            <h4>Presencial</h4>
+                            <p class="pricing-location">Centro En Buenas Manos · San Fernando</p>
+                            <dl class="pricing-list">
+                                <div class="pricing-row">
+                                    <dt>Psicoterapia individual <small>1 hora</small></dt>
+                                    <dd>70 €</dd>
+                                </div>
+                                <div class="pricing-row">
+                                    <dt>Terapia de pareja <small>1 hora y 15 minutos</small></dt>
+                                    <dd>80 €</dd>
+                                </div>
+                                <div class="pricing-row">
+                                    <dt>Intervención familiar</dt>
+                                    <dd>85 €</dd>
+                                </div>
+                            </dl>
+                        </article>
+                    </div>
+
+                    <p class="pricing-family-note"><strong>Intervención familiar:</strong> Consultar según las necesidades del caso y las personas participantes.</p>
+                </div>
+
+                <div class="info-section-wrap service-card pricing-bonus">
+                    <div class="bonus-heading">
+                        <h4>Bonos presenciales</h4>
+                        <p>Disponibles en el Centro En Buenas Manos, San Fernando.</p>
+                    </div>
+
+                    <div class="bonus-grid">
+                        <article class="bonus-card">
+                            <h4>Psicoterapia adultos</h4>
+                            <dl class="bonus-prices">
+                                <div><dt>Bono 4 sesiones</dt><dd>250 €</dd></div>
+                                <div><dt>Bono 8 sesiones</dt><dd>480 €</dd></div>
+                            </dl>
+                        </article>
+
+                        <article class="bonus-card">
+                            <h4>Terapia de pareja</h4>
+                            <dl class="bonus-prices">
+                                <div><dt>Bono 4 sesiones</dt><dd>280 €</dd></div>
+                            </dl>
+                        </article>
+
+                        <article class="bonus-card">
+                            <h4>Intervención familiar</h4>
+                            <dl class="bonus-prices">
+                                <div><dt>Bono 4 sesiones</dt><dd>300 €</dd></div>
+                            </dl>
+                        </article>
+                    </div>
+
+                    <p class="pricing-expiry">Los bonos de 4 sesiones caducan a los 4 meses; los bonos de 8 sesiones, a los 6 meses.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Journey Section -->
+    <section class="journey-section">
+        <div class="container">
+            <div class="subtitle" style="justify-content: center; margin-bottom: 20px;">El Proceso Terapéutico</div>
+            <h2>Un Camino Sencillo Hacia la Sanación</h2>
+
+            <div class="journey-steps">
+                <div class="step">
+                    <div class="step-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">
+                            </path>
+                        </svg>
+                        <div class="step-number">1</div>
+                    </div>
+                    <h4>Reserva una Sesión</h4>
+                    <p>Programa una consulta gratuita en línea.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z">
+                            </path>
+                        </svg>
+                        <div class="step-number">2</div>
+                    </div>
+                    <h4>Hablemos</h4>
+                    <p>Hablaremos de tus necesidades y objetivos.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2">
+                            </path>
+                        </svg>
+                        <div class="step-number">3</div>
+                    </div>
+                    <h4>Crear un Plan</h4>
+                    <p>Crearemos un plan de terapia personalizado para ti.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z">
+                            </path>
+                        </svg>
+                        <div class="step-number">4</div>
+                    </div>
+                    <h4>Comienza a Sanar</h4>
+                    <p>Inicia tu camino hacia una versión de ti más feliz.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section" style="display: none;">
+        <div class="nav-btn nav-prev"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+            </svg></div>
+        <div class="nav-btn nav-next"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+            </svg></div>
+
+        <div class="container">
+            <div class="subtitle" style="justify-content: center; margin-bottom: 20px;">Lo Que Dicen Mis Clientes</div>
+            <h2>Historias Reales. Cambios Reales.</h2>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="quote-mark">&ldquo;</div>
+                    <p>La terapia me ha ayudado a manejar mi ansiedad y a sentir que tengo el control de mi vida. Estoy
+                        muy agradecida por el apoyo que he recibido.</p>
+                    <div class="client-info">
+                        <img src="https://i.pravatar.cc/150?img=5" alt="Sarah M." class="client-avatar">
+                        <div class="client-details">
+                            <h4>Sarah M.</h4>
+                            <span>Cliente</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="quote-mark">&ldquo;</div>
+                    <p>Un espacio seguro para hablar, comprenderme y crecer. Recomiendo encarecidamente estas sesiones a
+                        cualquiera que lo necesite.</p>
+                    <div class="client-info">
+                        <img src="https://i.pravatar.cc/150?img=11" alt="James T." class="client-avatar">
+                        <div class="client-details">
+                            <h4>James T.</h4>
+                            <span>Cliente</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="quote-mark">&ldquo;</div>
+                    <p>He visto muchos cambios positivos en mi vida y mis relaciones. La orientación que he recibido me
+                        ha cambiado la vida por completo.</p>
+                    <div class="client-info">
+                        <img src="https://i.pravatar.cc/150?img=9" alt="Emily R." class="client-avatar">
+                        <div class="client-details">
+                            <h4>Emily R.</h4>
+                            <span>Cliente</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 40px; display: flex; justify-content: center; gap: 8px;">
+                <div style="width: 8px; height: 8px; border-radius: 50%; background-color: var(--primary-light);"></div>
+                <div style="width: 8px; height: 8px; border-radius: 50%; background-color: var(--border-color);"></div>
+                <div style="width: 8px; height: 8px; border-radius: 50%; background-color: var(--border-color);"></div>
+            </div>
+        </div>
+    </section>
+
+<!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-box">
+            <div class="cta-text" style="display: grid; grid-template-columns: 75px 1fr; gap: 0 20px; align-items: center;">
+                
+                <!-- Columna 1, Fila 1: La imagen (tendrá la altura exacta del título) -->
+                <div style="width: 75px; height: 75px; flex-shrink: 0; align-self: start;">
+                    <img src="images/eli-2.jpeg" alt="Elizabeth Espinosa" class="cta-image" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                </div>
+                
+                <!-- Columna 2, Fila 1: El título "¿Hablamos?" -->
+                <div>
+                    <h2 style="text-align: left; margin: 0;">¿Hablamos?</h2>
+                </div>
+                
+                <!-- Fila 2 (ocupa las dos columnas): El párrafo -->
+                <p style="grid-column: 1 / -1; margin-top: 15px;">
+                    Si estás pensando en empezar un proceso psicológico, este puede ser un primer paso. Podemos hablar sobre lo que estás viviendo, conocer qué necesitas, resolver tus dudas y valorar juntos/as si este espacio puede ser adecuado para ti
+                </p>
+
+            </div>
+            <a href="https://wa.me/34680718945" class="btn" target="_blank" rel="noopener noreferrer">Reserva tu sesión Hoy <span style="font-size: 1.2rem;">&rarr;</span></a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div class="container" id="footer">
+        <footer>
+            <div class="footer-grid">
+                <div class="footer-logo">
+                    <div class="logo">
+                        <img src="images/logo.png" alt="Logo" style="height: 100px; width: auto;">
+                    </div>
+                    <p>Terapia compasiva para ayudarte a sanar, crecer y vivir una vida con más sentido.</p>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="#">Inicio</a></li>
+                        <li><a href="#">Sobre mí</a></li>
+                        <li><a href="#">Servicios</a></li>
+                        <li><a href="#">Contacto</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Servicios</h4>
+                    <ul>
+                        <li><a href="#">Ansiedad y Estrés</a></li>
+                        <li><a href="#">Depresión</a></li>
+                        <li><a href="#">Relaciones</a></li>
+                        <li><a href="#">Crecimiento Personal</a></li>
+                        <li><a href="#">Recuperación de Trauma</a></li>
+                        <li><a href="#">Transiciones de Vida</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Recursos</h4>
+                    <ul>
+                        <li><a href="#">Preguntas Frecuentes</a></li>
+                        <li><a href="#">Recursos de Terapia</a></li>
+                        <li><a href="#">Guías de Autoayuda</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Política de Privacidad</a></li>
+                        <li><a href="#">Términos y Condiciones</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Contacto</h4>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/share/1EhNU7zU5r/" class="social-icon" target="_blank" rel="noopener noreferrer"><img src="images/facebook.png" alt="Facebook" style="width: 18px; height: 18px; object-fit: contain; display: block;"></a>
+                        <a href="https://www.instagram.com/elizabethespinosapsicologa/" class="social-icon" target="_blank" rel="noopener noreferrer"><img src="images/instagram.png" alt="Instagram" style="width: 18px; height: 18px; object-fit: contain; display: block;"></a>
+                        <a href="https://wa.me/34680718945" class="social-icon" target="_blank" rel="noopener noreferrer"><img src="images/whatsapp.png" alt="WhatsApp" style="width: 18px; height: 18px; object-fit: contain; display: block;"></a>
+                    </div>
+                    <div class="contact-info">
+                        <div style="display: flex; gap: 10px; align-items: flex-start;">
+                            <svg style="margin-top: 3px;" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                                </path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                            elizabethespinosapsicologa@gmail.com
+                        </div>
+                        <div style="display: flex; gap: 10px; align-items: flex-start;">
+                            <svg style="margin-top: 3px;" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <path
+                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                                </path>
+                            </svg>
+                            (+34) 680 718 945
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026. Todos los derechos reservados.
+            </div>
+        </footer>
+    </div>
+    
+<script>
+    // Función auxiliar para bloquear el scroll táctil en móviles
+    function preventDefaultScroll(e) {
+        const mobileMenu = document.querySelector('.mobile-menu');
+        
+        // Si el toque fue dentro del menú, comprobamos si el menú necesita scroll interno
+        if (mobileMenu && mobileMenu.contains(e.target)) {
+            const isScrollable = mobileMenu.scrollHeight > mobileMenu.clientHeight;
+            
+            if (isScrollable) {
+                // Si el menú tiene scroll interno, permitimos el gesto dentro de él
+                return;
+            }
+        }
+        
+        // En cualquier otro caso (o si el menú cabe entero sin scroll), bloqueamos el gesto
+        e.preventDefault();
+    }
+
+    function toggleMobileMenu() {
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const menuOverlay = document.querySelector('.menu-overlay');
+        const menuToggle = document.querySelector('.menu-toggle');
+        
+        mobileMenu.classList.toggle('active');
+        menuOverlay.classList.toggle('active');
+        menuToggle.classList.toggle('active');
+        document.body.classList.toggle('menu-open', mobileMenu.classList.contains('active'));
+        if (window.syncHeaderState) window.syncHeaderState();
+        
+        if (mobileMenu.classList.contains('active')) {
+            // Bloqueo estricto para móvil y PC (el menú se abre donde estés, sin subir al inicio)
+            document.body.style.overflow = 'hidden';
+            document.addEventListener('touchmove', preventDefaultScroll, { passive: false });
+        } else {
+            // Restaurar desplazamiento
+            document.body.style.overflow = '';
+            document.removeEventListener('touchmove', preventDefaultScroll);
+        }
+    }
+    
+    // Cerrar menú al presionar la tecla ESC
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const menuOverlay = document.querySelector('.menu-overlay');
+            const menuToggle = document.querySelector('.menu-toggle');
+            
+            if (mobileMenu && mobileMenu.classList.contains('active')) {
+                mobileMenu.classList.remove('active');
+                menuOverlay.classList.remove('active');
+                menuToggle.classList.remove('active');
+                document.body.classList.remove('menu-open');
+                if (window.syncHeaderState) window.syncHeaderState();
+                
+                document.body.style.overflow = '';
+                document.removeEventListener('touchmove', preventDefaultScroll);
+            }
+        }
+    });
+
+    // Header sticky: compacta la barra al hacer scroll y reserva su altura en el flujo
+    (function () {
+        var header = document.getElementById('site-header');
+        if (!header) return;
+        var root = document.documentElement;
+
+        // Con el menú móvil abierto el header vuelve a su estado grande (logo y botón dentro del panel)
+        function updateScrolled() {
+            var menuOpen = document.body.classList.contains('menu-open');
+            header.classList.toggle('is-scrolled', window.scrollY > 24 && !menuOpen);
+        }
+        window.syncHeaderState = updateScrolled;
+
+        // Mide la altura del header en su estado "arriba del todo" (sin animar nada)
+        function updateSpacer() {
+            var wasScrolled = header.classList.contains('is-scrolled');
+            header.classList.add('no-transition');
+            header.classList.remove('is-scrolled');
+            var h = header.offsetHeight;
+            if (wasScrolled) header.classList.add('is-scrolled');
+            void header.offsetHeight;
+            header.classList.remove('no-transition');
+            root.style.setProperty('--header-h', h + 'px');
+        }
+
+        updateScrolled();
+        updateSpacer();
+
+        window.addEventListener('scroll', updateScrolled, { passive: true });
+        window.addEventListener('resize', updateSpacer);
+        window.addEventListener('load', updateSpacer);
+
+        var logo = header.querySelector('.logo img');
+        if (logo && !logo.complete) logo.addEventListener('load', updateSpacer);
+    })();
+</script>
+</body>
+
+</html>
